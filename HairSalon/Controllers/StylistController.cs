@@ -50,9 +50,9 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Stylist Stylist)
+    public ActionResult Edit(Stylist stylist)
     {
-      _db.Entry(Stylist).State = EntityState.Modified;
+      _db.Entry(stylist).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
