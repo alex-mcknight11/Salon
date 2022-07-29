@@ -22,7 +22,7 @@ _This app creates and integrates a backend database with a customer facing appli
 * Clone this repository to your local machine
 * In MySql Workbench, click the Administration tab, and then select Data Import/Restore.
 * In the Data Import Window, select Import from self-contained file, and using the file browser option, navigate to this project's root directory and select alex_mcknight.sql
-* Once selected, select New in the Default Schema to be Imported To, and name the schema "salon".
+* Once selected, select New in the Default Schema to be Imported To, and name the schema "HairSalon".
 * Next, select the Import Progress tab and select Start Import.
 * In the project's root directory, you will next need to create an appsettings.json file with the following information where YOURPASSWORDHERE is the password used to connect to MySQL: ```{
   "ConnectionStrings":{
