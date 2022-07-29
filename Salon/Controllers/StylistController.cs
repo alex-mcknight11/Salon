@@ -7,67 +7,67 @@ using System.Linq;
 
 namespace Salon.Controllers
 {
-  public class RestaurantsController : Controller
+  public class StylistController : Controller
   {
     private readonly SalonContext _db;
 
-    public RestaurantsController(SalonContext db)
+    public StylistController(SalonContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
+      List<Stylist> model = _db.Stylists.Include(Stylist => Stylist.Client).ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
+      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Name");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Restaurant restaurant)
+    public ActionResult Create(Stylist Stylist)
     {
-      _db.Restaurants.Add(restaurant);
+      _db.Stylists.Add(Stylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      Stylist thisStylist = _db.Stylists.FirstOrDefault(Stylist => Stylist.StylistId == id);
+      return View(thisStylist);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      var thisStylist = _db.Stylists.FirstOrDefault(Stylist => Stylist.StylistId == id);
       ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
-      return View(thisRestaurant);
+      return View(thisStylist);
     }
 
     [HttpPost]
-    public ActionResult Edit(Restaurant restaurant)
+    public ActionResult Edit(Stylist Stylist)
     {
-      _db.Entry(restaurant).State = EntityState.Modified;
+      _db.Entry(Stylist).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      var thisStylist = _db.Stylists.FirstOrDefault(Stylist => Stylist.StylistId == id);
+      return View(thisStylist);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      _db.Restaurants.Remove(thisRestaurant);
+      var thisStylist = _db.Stylists.FirstOrDefault(Stylist => Stylist.StylistId == id);
+      _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
