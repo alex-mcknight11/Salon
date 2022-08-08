@@ -26,10 +26,10 @@ _This app creates and integrates a backend database with a customer facing appli
 * Next, select the Import Progress tab and select Start Import.
 * In the project's root directory, you will next need to create an appsettings.json file with the following information where YOURPASSWORDHERE is the password used to connect to MySQL: ```{
   "ConnectionStrings":{
-    "DefaultConnection":"Server=localhost;Port=3306;database=salon;uid=root; pwd=[YOURPASSWORDHERE];"
+    "DefaultConnection":"Server=localhost;Port=3306;database=alex_mcknight;uid=root; pwd=[YOURPASSWORDHERE];"
   }
 }```
-* Once saved, type ```cd Salon``` in your command line to navigate to the main project folder.
+* Once saved, type ```cd HairSalon``` in your command line to navigate to the main project folder.
 * To install the project's dependencies, in the command line type ```dotnet restore```
 * Once in the Project folder, type ```dotnet run``` in the command line to run the program.
 
